@@ -43,7 +43,7 @@ cd fastapitest
 ---
 
 
-# 2. Create virtual environment
+# 2.1  Create virtual environment
 ```bash
 sudo apt update
 sudo apt install software-properties-common -y
@@ -183,6 +183,31 @@ Expected output:
 - .env isolates secrets from source code
 - pyright ensures static type safety
 - pytest mocks external requests and isolates logic
+
+
+
+#  Docker deployment (Optional)
+
+✅ Requirements
+- Docker
+- Docker Compose
+- Python 3.10+ (already handled inside container)
+
+✅ In your terminal, run:
+```bash
+docker-compose build
+docker-compose up
+
+```
+```
+```
+
+The FastAPI app will be running at:
+
+http://localhost:8080/docs
+
+You can interact with the Swagger UI to test the endpoints.
+
 
 # 14. 👨‍💻 Author
 Fernando Eliseo Garrido Villalobos
