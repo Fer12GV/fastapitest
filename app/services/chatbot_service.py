@@ -5,6 +5,7 @@ from app.models.message import Message
 from app.models.user import User
 from app.database import engine
 from app.config import OPENAI_API_KEY, OPENAI_API_URL
+from fastapi import HTTPException
 
 
 def ask_openai(username: str, question: str) -> str:
@@ -27,6 +28,9 @@ def ask_openai(username: str, question: str) -> str:
                 {"role": "user", "content": question}
             ]
         }
+
+        if not OPENAI_API_KEY or not OPENAI_API_URL:
+            raise HTTPException(status_code=500, detail="Missing OpenAI credentials")
 
         response = httpx.post(OPENAI_API_URL, headers=headers, json=payload, timeout=10)
         response.raise_for_status()
