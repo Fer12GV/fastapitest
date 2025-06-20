@@ -1,5 +1,6 @@
 # Python version:  Python 3.10.12
 
+pyright
 fastapi
 uvicorn
 sqlmodel
@@ -7,3 +8,4 @@ sqlalchemy
 python-dotenv
 httpx
 pytest
+pytest-mock
